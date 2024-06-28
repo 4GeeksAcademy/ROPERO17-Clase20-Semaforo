@@ -17,16 +17,26 @@ const Semaforo = () => {
     cursor: "pointer",
     transition: "background-color 0.3s",
   };
+  const estiloSemaforo = {
+    width: "100px",
+    backgroundColor: "gray",
+    padding: "20px",
+    borderRadius: "10px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  };
 
   return (
     <div className="container text-center">
+      <div className="d-flex justify-content-center" style={estiloSemaforo}>
       <div
         className="rounded-circle"
         style={{
           ...estilosLuz,
-         backgroundColor: luzActiva === "verde" ? "lightgreen" : "green",
+         backgroundColor: luzActiva === "rojo" ? "lightcoral" : "red",
         }}
-        onClick={() => iluminar("verde")}
+        onClick={() => iluminar("rojo")}
       ></div>
       <div
         className="rounded-circle"
@@ -40,10 +50,11 @@ const Semaforo = () => {
         className="rounded-circle"
         style={{
           ...estilosLuz,
-          backgroundColor: luzActiva === "rojo" ? "lightcoral" : "red",
+          backgroundColor: luzActiva === "verde" ? "lightgreen" : "green",
         }}
-        onClick={() => iluminar("rojo")}
+        onClick={() => iluminar("verde")}
       ></div>
+      </div>
     </div>
   );
 };
